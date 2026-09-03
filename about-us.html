@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | TravelGuide</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+  }
+
+  /* ---------- Navigation Bar ---------- */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #0b3d5c;
+    padding: 14px 24px;
+    gap: 16px;
+  }
+  .navbar .logo {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+  }
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .nav-links li a.active,
+  .nav-links li a:hover {
+    text-decoration: underline;
+  }
+  .search-area {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  #searchInput {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    width: 200px;
+  }
+  .btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  #searchBtn { background: #ff9800; color: #fff; }
+  #searchBtn:hover { background: #e68900; }
+  #clearBtn { background: #ccc; color: #222; }
+  #clearBtn:hover { background: #b3b3b3; }
+
+  /* ---------- Hero ---------- */
+  .about-hero {
+    background: linear-gradient(135deg, #0b3d5c, #12587f);
+    color: #fff;
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .about-hero h1 {
+    margin: 0 0 12px;
+    font-size: 2.2rem;
+  }
+  .about-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #d9e6ee;
+    font-size: 1.05rem;
+  }
+
+  /* ---------- Content ---------- */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 20px;
+  }
+  .intro-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+  .intro-block h2 {
+    color: #0b3d5c;
+    margin-top: 0;
+  }
+  .intro-block p {
+    color: #444;
+    line-height: 1.7;
+  }
+  .intro-block .stat-box {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    padding: 24px;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row .num {
+    color: #ff9800;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  /* ---------- Values ---------- */
+  .values-section h2 {
+    color: #0b3d5c;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+  .value-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    border-top: 3px solid #ff9800;
+  }
+  .value-card h3 {
+    color: #0b3d5c;
+    margin-top: 0;
+  }
+  .value-card p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  /* ---------- Team ---------- */
+  .team-section h2 {
+    color: #0b3d5c;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  .team-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  }
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #0b3d5c;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 auto 14px;
+  }
+  .team-card h3 {
+    margin: 0 0 4px;
+    color: #0b3d5c;
+    font-size: 1.05rem;
+  }
+  .team-card .role {
+    color: #ff9800;
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+  .team-card p.bio {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  footer {
+    background: #0b3d5c;
+    color: #cfe0ea;
+    text-align: center;
+    padding: 24px;
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 700px) {
+    .intro-block { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation Bar ===== -->
+<div class="navbar">
+  <div class="logo">TravelGuide</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about-us.html" class="active">About Us</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+  <div class="search-area">
+    <input type="text" id="searchInput" placeholder="Search destinations...">
+    <button class="btn" id="searchBtn">Search</button>
+    <button class="btn" id="clearBtn">Clear</button>
+  </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<div class="about-hero">
+  <h1>About TravelGuide</h1>
+  <p>We help travelers find destinations that actually fit them — not just the places everyone else is posting about.</p>
+</div>
+
+<div class="container">
+
+  <!-- ===== Intro ===== -->
+  <div class="intro-block">
+    <div>
+      <h2>Our Story</h2>
+      <p>TravelGuide started in 2019 as a shared spreadsheet between three friends who kept sending each other the same "hidden gem" articles that turned out to be neither hidden nor gems. We got tired of recommendations written by people who'd never actually been to the places they were describing.</p>
+      <p>So we built something different: a small team of travelers who visit destinations ourselves, take notes on what's overhyped and what's genuinely worth the trip, and write it up honestly — including the parts that aren't glamorous.</p>
+    </div>
+    <div class="stat-box">
+      <div class="stat-row"><span>Destinations covered</span><span class="num">180+</span></div>
+      <div class="stat-row"><span>Countries visited by our team</span><span class="num">42</span></div>
+      <div class="stat-row"><span>Years recommending travel</span><span class="num">7</span></div>
+      <div class="stat-row"><span>Sponsored posts</span><span class="num">0</span></div>
+    </div>
+  </div>
+
+  <!-- ===== Values ===== -->
+  <div class="values-section">
+    <h2>What We Care About</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Honest Reviews</h3>
+        <p>If a destination isn't worth the hype, we say so. We don't accept payment for placement in our recommendations.</p>
+      </div>
+      <div class="value-card">
+        <h3>First-Hand Experience</h3>
+        <p>Every place we recommend has been visited by someone on our team — not pulled from a press kit.</p>
+      </div>
+      <div class="value-card">
+        <h3>Practical Detail</h3>
+        <p>We focus on what you actually need to plan a trip: costs, timing, and what to skip, not just pretty photos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Team ===== -->
+  <div class="team-section">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">A</div>
+        <h3>Amara Chen</h3>
+        <div class="role">Co-Founder & Editor</div>
+        <p class="bio">Based in Singapore. Specializes in Southeast Asia and budget travel.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">L</div>
+        <h3>Liam Ferreira</h3>
+        <div class="role">Co-Founder & Researcher</div>
+        <p class="bio">Based in Lisbon. Covers Europe, road trips, and off-season travel.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">S</div>
+        <h3>Sana Iqbal</h3>
+        <div class="role">Destinations Writer</div>
+        <p class="bio">Based in Karachi. Focuses on South Asia and family-friendly trips.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 TravelGuide. Independent travel recommendations, no sponsored placements.
+</footer>
+
+</body>
+</html>
